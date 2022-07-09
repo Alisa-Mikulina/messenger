@@ -1,3 +1,3 @@
 export const Input = () => {
-  return <input />;
+	return <input />;
 };
