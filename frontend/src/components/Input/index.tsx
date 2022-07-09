@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { bem } from '@utils';
+import { bem } from 'src/utils/utils';
 
 import styles from './Input.module.css';
 

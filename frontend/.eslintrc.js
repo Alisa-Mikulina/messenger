@@ -79,6 +79,7 @@ module.exports = {
 		strict: ['error', 'safe'],
 		'no-shadow-restricted-names': 'error',
 		'no-undef-init': 'warn',
+		'no-undef': 'off',
 		'no-use-before-define': 'error',
 		camelcase: 'off',
 		'consistent-this': ['error', '_this'],

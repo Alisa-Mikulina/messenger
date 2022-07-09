@@ -34,7 +34,9 @@
       "baseUrl": ".",
       "paths": {
         "@components": ["src/components"],
-        "@utils": ["src/utils"]
+        "@utils": ["src/utils"],
+        "@types": ["src/types"],
+        "@api": ["src/api"]
       }
   },
   "exclude": ["node_modules", "dist", ".ci"],

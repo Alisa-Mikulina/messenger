@@ -1,4 +1,4 @@
-import { bem } from '@utils';
+import { bem } from 'src/utils/utils';
 
 import styles from './Button.module.css';
 
@@ -9,9 +9,9 @@ type Props = {
 	onClick: () => void;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Button: React.FC<Props> = ({ children, mode, className }) => {
+export const Button: React.FC<Props> = ({ children, mode, className, onClick }) => {
 	return (
-		<button className={bem(className, styles.button)}>
+		<button onClick={onClick} className={bem(className, styles.button)}>
 			<div className={bem(styles.container, mode !== 'primary' ? styles.primary : styles.secondary)}>
 				{children}
 			</div>

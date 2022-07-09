@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import { Button, Input } from '@components';
-import { noop } from '@utils';
+import { useUser } from '@utils';
 
 import styles from './LoginPage.module.css';
 
@@ -15,6 +16,18 @@ export const LoginPage: React.FC = () => {
 	const updateForm = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 		setLoginForm((oldForm: LoginParameters) => ({ ...oldForm, [e.target.name]: e.target.value }));
 	}, []);
+
+	const { user, login } = useUser();
+
+	const loginOnClick = useCallback(() => {
+		const { username } = loginForm;
+
+		login({ username: username! });
+	}, [login, loginForm]);
+
+	if (user) {
+		return <Navigate to="/chats" replace={true} />;
+	}
 
 	const validateForm = () => {
 		const { username, password } = loginForm;
@@ -35,7 +48,11 @@ export const LoginPage: React.FC = () => {
 				<Input name="username" label="Your username" onChange={updateForm} />
 				<Input name="password" label="Password" type="password" onChange={updateForm} />
 			</div>
-			<Button className={validateForm() ? styles.showButton : styles.hideButton} onClick={noop} disabled={true}>
+			<Button
+				className={validateForm() ? styles.showButton : styles.hideButton}
+				onClick={loginOnClick}
+				disabled={true}
+			>
 				NEXT
 			</Button>
 		</div>
