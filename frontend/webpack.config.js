@@ -9,7 +9,8 @@ module.exports = ({ mode } = { mode: 'production ' }) => {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      publicPath: '/'
     },
     module: {
       rules: [
@@ -38,11 +39,27 @@ module.exports = ({ mode } = { mode: 'production ' }) => {
               }
             }
           ]
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: true
+              }
+            }
+          ]
         }
       ]
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js']
+    },
+    devServer: {
+      historyApiFallback: true
     },
     plugins: [
       new HtmlWebpackPlugin({

@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
       "allowSyntheticDefaultImports": true,
-      "allowJs": true,
+      "allowJs": false,
       "strictNullChecks": true,
       "strictFunctionTypes": true,
       "strictPropertyInitialization": true,
@@ -27,11 +27,14 @@
       "sourceMap": true,
       "pretty": true,
       "assumeChangesOnlyAffectDirectDependencies": true,
-      "baseUrl": ".",
       "typeRoots": [
           "node_modules/@types"
       ],
-      "jsx": "react-jsx"
+      "jsx": "react-jsx",
+      "baseUrl": ".",
+      "paths": {
+        "@components": ["src/components"]
+      }
   },
   "exclude": ["node_modules", "dist", ".ci"],
   "include": ["**/*.ts", "**/*.tsx"]
