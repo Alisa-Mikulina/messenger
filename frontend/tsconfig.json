@@ -33,7 +33,8 @@
       "jsx": "react-jsx",
       "baseUrl": ".",
       "paths": {
-        "@components": ["src/components"]
+        "@components": ["src/components"],
+        "@utils": ["src/utils"]
       }
   },
   "exclude": ["node_modules", "dist", ".ci"],
