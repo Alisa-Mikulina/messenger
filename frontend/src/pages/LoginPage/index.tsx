@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useUser } from '@api/context';
 import { FieldInput } from '@api/forms';
@@ -36,9 +37,10 @@ const LoginPagePure: React.FC = observer(() => {
 				<FieldInput field={form.fields.username} label="Username" />
 				<FieldInput field={form.fields.password} label="Password" type="password" />
 			</div>
-			<Button onClick={loginOnClick} disabled={true}>
-				NEXT
-			</Button>
+			<Button onClick={loginOnClick}>NEXT</Button>
+			<Link className={styles.join} to="/register">
+				Not registered? Join Simple messenger
+			</Link>
 		</div>
 	);
 });

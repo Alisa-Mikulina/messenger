@@ -27,10 +27,7 @@
     gap: 5px;
 }
 
-.showButton {
-    opacity: 1;
-}
-
-.hideButton {
-    opacity: 0
+.join {
+    position: absolute;
+    bottom: 10%;
 }

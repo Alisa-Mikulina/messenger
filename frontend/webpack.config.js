@@ -53,6 +53,10 @@ module.exports = ({ mode } = { mode: 'production ' }) => {
 							}
 						}
 					]
+				},
+				{
+					test: /\.svg$/,
+					loader: 'raw-loader'
 				}
 			]
 		},

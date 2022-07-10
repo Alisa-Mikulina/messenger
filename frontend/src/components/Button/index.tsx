@@ -1,4 +1,4 @@
-import { bem } from 'src/utils/utils';
+import { bem } from '@utils';
 
 import styles from './Button.module.css';
 
