@@ -15,6 +15,9 @@ const LoginPagePure: React.FC = observer(() => {
 	const { login } = useUser();
 
 	const loginOnClick = useCallback(() => {
+		if (!form.submit()) {
+			return;
+		}
 		const { username } = form.serialize();
 
 		login({ username });
@@ -33,11 +36,7 @@ const LoginPagePure: React.FC = observer(() => {
 				<FieldInput field={form.fields.username} label="Username" />
 				<FieldInput field={form.fields.password} label="Password" type="password" />
 			</div>
-			<Button
-				className={form.submit() ? styles.showButton : styles.hideButton}
-				onClick={loginOnClick}
-				disabled={true}
-			>
+			<Button onClick={loginOnClick} disabled={true}>
 				NEXT
 			</Button>
 		</div>
