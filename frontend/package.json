@@ -53,6 +53,8 @@
 	"dependencies": {
 		"@emotion/react": "^11.9.3",
 		"@emotion/styled": "^11.9.3",
+		"mobx": "^6.6.1",
+		"mobx-react-lite": "^3.4.0",
 		"react-router-dom": "^6.3.0"
 	}
 }

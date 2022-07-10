@@ -12,3 +12,8 @@ export type User = {
 	login(data: UserParameters): void;
 	logout(): void;
 };
+
+export type LoginParameters = {
+	username?: string;
+	password?: string;
+};

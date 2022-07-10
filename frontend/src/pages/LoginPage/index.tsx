@@ -1,39 +1,24 @@
-import { useCallback, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import { useCallback, useMemo } from 'react';
 
-import { Button, Input } from '@components';
-import { useUser } from '@utils';
+import { useUser } from '@api/context';
+import { FieldInput } from '@api/forms';
+import { Button } from '@components';
+import { NotRequiresAuth } from '@utils';
+
+import { loginForm } from './loginForm';
 
 import styles from './LoginPage.module.css';
 
-type LoginParameters = {
-	username?: string;
-	password?: string;
-};
-
-export const LoginPage: React.FC = () => {
-	const [loginForm, setLoginForm] = useState<LoginParameters>({});
-	const updateForm = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-		setLoginForm((oldForm: LoginParameters) => ({ ...oldForm, [e.target.name]: e.target.value }));
-	}, []);
-
-	const { user, login } = useUser();
+const LoginPagePure: React.FC = observer(() => {
+	const form = useMemo(loginForm, []);
+	const { login } = useUser();
 
 	const loginOnClick = useCallback(() => {
-		const { username } = loginForm;
+		const { username } = form.serialize();
 
-		login({ username: username! });
-	}, [login, loginForm]);
-
-	if (user) {
-		return <Navigate to="/chats" replace={true} />;
-	}
-
-	const validateForm = () => {
-		const { username, password } = loginForm;
-
-		return (username?.length || 0) >= 5 && (password?.length || 0) >= 8;
-	};
+		login({ username });
+	}, [form, login]);
 
 	return (
 		<div className={styles.container}>
@@ -45,11 +30,11 @@ export const LoginPage: React.FC = () => {
 				</p>
 			</div>
 			<div className={styles.loginInputs}>
-				<Input name="username" label="Your username" onChange={updateForm} />
-				<Input name="password" label="Password" type="password" onChange={updateForm} />
+				<FieldInput field={form.fields.username} label="Username" />
+				<FieldInput field={form.fields.password} label="Password" type="password" />
 			</div>
 			<Button
-				className={validateForm() ? styles.showButton : styles.hideButton}
+				className={form.submit() ? styles.showButton : styles.hideButton}
 				onClick={loginOnClick}
 				disabled={true}
 			>
@@ -57,4 +42,6 @@ export const LoginPage: React.FC = () => {
 			</Button>
 		</div>
 	);
-};
+});
+
+export const LoginPage = () => <NotRequiresAuth component={<LoginPagePure />} />;

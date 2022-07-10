@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { ProtectedRoute } from '@utils';
-
-import { AuthPage } from './pages/AuthPage';
-import { LoginPage } from './pages/LoginPage';
-import { UserProvider } from './utils/UserContext';
+import { UserProvider } from '@api/context';
+import { AuthPage } from '@pages/AuthPage';
+import { ChatsPage } from '@pages/ChatsPage';
+import { LoginPage } from '@pages/LoginPage';
+import { RegisterPage } from '@pages/RegisterPage';
 
 export const App: React.FC = () => {
 	return (
@@ -13,14 +13,9 @@ export const App: React.FC = () => {
 				<Routes>
 					<Route path="/" element={<AuthPage />} />
 					<Route path="login" element={<LoginPage />} />
-					<Route
-						path="chats"
-						element={
-							<ProtectedRoute>
-								<p> Successfully logged in</p>
-							</ProtectedRoute>
-						}
-					/>
+					<Route path="register" element={<RegisterPage />} />
+					<Route path="chats" element={<ChatsPage />} />
+					<Route path="*" element={<AuthPage />} />
 				</Routes>
 			</UserProvider>
 		</BrowserRouter>

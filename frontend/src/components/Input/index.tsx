@@ -1,38 +1,29 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 
 import { bem } from 'src/utils/utils';
 
 import styles from './Input.module.css';
 
-type Props = {
-	initial?: string;
+type InputProps = {
 	className?: string;
 	label?: string;
-	name: string;
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+	value: string;
+	onChange: (newValue: string) => void;
+};
 
-export const Input: React.FC<Props> = ({ initial, onChange, name, className, label, ...rest }) => {
-	const [content, setContent] = useState(initial || '');
+type Props = InputProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, keyof InputProps>;
 
+export const Input: React.FC<Props> = ({ value, onChange, name, className, label, ...rest }) => {
 	const handleInputChanged = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
-			onChange(e);
-			setContent(e.target.value);
+			onChange(e.target.value);
 		},
 		[onChange]
 	);
 
 	return (
 		<div className={bem(className, styles.container)}>
-			<input
-				name={name}
-				id={name}
-				value={content}
-				onChange={handleInputChanged}
-				className={styles.input}
-				{...rest}
-			/>
+			<input value={value} onChange={handleInputChanged} className={styles.input} {...rest} />
 			{label && (
 				<label className={styles.label} htmlFor={name}>
 					{label}
