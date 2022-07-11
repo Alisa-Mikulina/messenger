@@ -7,18 +7,20 @@ type RegisterForm = {
 };
 
 export const registerForm = () => {
+	const password = field({
+		validator: moreThan(7)
+	});
+
+	const confirmPassword = field({
+		validator: equals(password, 'Password')
+	});
+
 	const form = createForm({
 		username: field({
 			validator: moreThan(4)
 		}),
-		password: field({
-			validator: moreThan(7)
-		}),
-		confirmPassword: field()
-	});
-
-	form.fields.confirmPassword = field({
-		validator: equals(form.fields.password, 'Password')
+		password,
+		confirmPassword
 	});
 
 	return form as Form<RegisterForm>;
