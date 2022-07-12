@@ -10,7 +10,8 @@
 		"webpack": "webpack",
 		"webpack-dev-server": "webpack-dev-server",
 		"dev": "npm run webpack-dev-server -- --env mode=development --hot --history-api-fallback",
-		"prod": "npm run webpack -- --env mode=production"
+		"prod": "npm run webpack -- --env mode=production",
+		"lint": "eslint --fix --ext .ts,.tsx ./src"
 	},
 	"prettier-package-json": {
 		"tabWidth": 4

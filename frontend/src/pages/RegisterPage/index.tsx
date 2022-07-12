@@ -1,8 +1,7 @@
-import { FieldInput } from '@packages/forms';
-
 import { useMemo } from 'react';
 
 import { Button } from '@components';
+import { FieldInput } from '@packages/forms';
 import { NotRequiresAuth } from '@utils';
 
 import { registerForm } from './registerForm';
