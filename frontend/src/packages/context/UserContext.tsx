@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useLocalStorage } from '@api/hooks';
+import { useLocalStorage } from '@packages/hooks';
 import { User, UserParameters } from '@types';
 
 export const UserContext = createContext<User>(

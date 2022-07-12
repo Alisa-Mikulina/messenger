@@ -12,6 +12,11 @@
 :root {
     --primary-color: rgb(131, 120, 218);
     --secondary-color: rgb(80, 80, 80);
-    --black-color: rgb(33, 33, 33);
-    --text-secondary: rgb(170,170,170);
+    --backgroun-primary-color: rgb(33, 33, 33);
+    --text-secondary-color: rgb(170,170,170);
+    --background-secondary-color: rgb(35,48,64);
+}
+
+html {
+    background-color: var(--background-secondary-color)
 }

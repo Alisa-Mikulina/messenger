@@ -1,4 +1,4 @@
-import { createForm, field, moreThan } from '@api/forms';
+import { createForm, field, moreThan } from '@packages/forms';
 
 type LoginForm = {
 	username: string;

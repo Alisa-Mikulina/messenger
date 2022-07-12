@@ -38,7 +38,7 @@ export const createForm = <FormTypings extends FormTypes>(formSource: FormSource
 	const form = {
 		fields: formSource,
 		submit() {
-			return Object.entries(form.fields).map(([, field]) => field?.validate()?.isOk === false).length == 0;
+			return Object.entries(form.fields).filter(([, field]) => field?.validate()?.isOk === false).length == 0;
 		},
 		serialize() {
 			const formValue = {} as any;

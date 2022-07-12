@@ -1,6 +1,5 @@
+import { useUser } from '@packages/context';
 import { Navigate } from 'react-router-dom';
-
-import { useUser } from '@api/context';
 
 type Props = {
 	component: React.ReactNode;

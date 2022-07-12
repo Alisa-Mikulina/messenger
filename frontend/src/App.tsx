@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { UserProvider } from '@api/context';
+import { UserProvider } from '@packages/context';
 import { AuthPage } from '@pages/AuthPage';
 import { ChatsPage } from '@pages/ChatsPage';
 import { LoginPage } from '@pages/LoginPage';

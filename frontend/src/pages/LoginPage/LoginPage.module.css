@@ -1,7 +1,7 @@
 .container {
     background-color: rgb(33, 33, 33);
     width: 100vw;
-    height: 100vh;
+    height: var(--fill-height);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@
 }
 
 .description {
-    color: var(--text-secondary);
+    color: var(--text-secondary-color);
 }
 
 .texts {

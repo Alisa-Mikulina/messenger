@@ -2,9 +2,9 @@ import { observer } from 'mobx-react-lite';
 import { useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useUser } from '@api/context';
-import { FieldInput } from '@api/forms';
 import { Button } from '@components';
+import { useUser } from '@packages/context';
+import { FieldInput } from '@packages/forms';
 import { NotRequiresAuth } from '@utils';
 
 import { loginForm } from './loginForm';
@@ -16,6 +16,7 @@ const LoginPagePure: React.FC = observer(() => {
 	const { login } = useUser();
 
 	const loginOnClick = useCallback(() => {
+		console.log(form.submit());
 		if (!form.submit()) {
 			return;
 		}

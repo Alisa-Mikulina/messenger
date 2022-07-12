@@ -11,7 +11,7 @@
     box-sizing: border-box;
     padding: 0 13px;
     border: none;
-    background-color: var(--black-color);
+    background-color: var(--backgroun-primary-color);
 }
 
 .container {

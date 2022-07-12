@@ -3,3 +3,11 @@ export const bem = (...styles: (string | boolean | null | undefined)[]): string 
 };
 
 export const noop: () => void = () => null;
+
+export const assert = (condition: boolean) => {
+	if (condition) {
+		return;
+	}
+
+	throw new Error('Assertion failed');
+};

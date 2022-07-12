@@ -36,8 +36,9 @@
         "@components": ["src/components"],
         "@utils": ["src/utils"],
         "@types": ["src/types"],
-        "@api/*": ["src/api/*"],
-        "@pages/*": ["src/pages/*"]
+        "@packages/*": ["src/packages/*"],
+        "@pages/*": ["src/pages/*"],
+        "@api/*": ["src/api/*"]
       }
   },
   "exclude": ["node_modules", "dist", ".ci"],
