@@ -14,9 +14,7 @@ export const ImageOrLetter: React.FC<Props> = ({ image, label: username, color, 
 
 	if (image) {
 		content = <img className={styles.icon} src={image} />;
-	}
-
-	if (username) {
+	} else if (username) {
 		content = (
 			<div className={styles.icon} style={{ backgroundColor: color || 'white' }}>
 				{username[0].toUpperCase()}

@@ -16,7 +16,6 @@ const LoginPagePure: React.FC = observer(() => {
 	const { login } = useUser();
 
 	const loginOnClick = useCallback(() => {
-		console.log(form.submit());
 		if (!form.submit()) {
 			return;
 		}

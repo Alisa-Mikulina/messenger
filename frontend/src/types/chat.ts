@@ -1,5 +1,6 @@
 export type ChatCardParameters = {
 	image?: string;
+	color?: string;
 	id: string;
 	label: string;
 	lastMessage: string;

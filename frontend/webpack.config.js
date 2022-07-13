@@ -3,6 +3,7 @@ const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = ({ mode } = { mode: 'production ' }) => {
+	// eslint-disable-next-line no-console
 	console.log(`Built mode: ${mode}`);
 
 	return {
