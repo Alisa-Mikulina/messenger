@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { bem } from '@utils';
 
+import { maskBuilder } from './mask';
 import eye from './res/eye.svg';
 
 import styles from './Input.module.css';
@@ -11,15 +12,19 @@ type InputProps = {
 	label?: string;
 	value: string;
 	type?: string;
+	mask?: string;
 	onChange: (newValue: string) => void;
 };
 
 type Props = InputProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, keyof InputProps>;
 
-export const Input: React.FC<Props> = ({ value, onChange, name, className, label, type, ...rest }) => {
+export const Input: React.FC<Props> = ({ value, onChange, name, className, label, type, mask, ...rest }) => {
 	const [mode, setMode] = useState(type);
+	const pattern = useMemo(() => maskBuilder(mask), [mask]);
 	const handleInputChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange(e.target.value);
+		pattern.format(e.target.value);
+
+		onChange(pattern.value);
 	};
 
 	const togglePassword = () => {

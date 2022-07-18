@@ -1,4 +1,3 @@
-export type Types = string;
 export type Content<T> = {
 	isOk: true;
 	value: T;
@@ -20,7 +19,7 @@ export type Field<T> = {
 };
 
 export type FormTypes = {
-	[name: string]: Types;
+	[name: string]: any;
 };
 
 export type FormSource<FormType extends FormTypes = {}> = {

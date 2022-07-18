@@ -34,7 +34,7 @@ const LoginPagePure: React.FC = observer(() => {
 				</p>
 			</div>
 			<div className={styles.loginInputs}>
-				<FieldInput field={form.fields.username} label="Username" />
+				<FieldInput field={form.fields.username} label="Login" />
 				<FieldInput field={form.fields.password} label="Password" type="password" />
 			</div>
 			<Button onClick={loginOnClick}>NEXT</Button>

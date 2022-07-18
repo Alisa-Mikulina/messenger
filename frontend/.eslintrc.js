@@ -15,7 +15,11 @@ module.exports = {
 	},
 	globals: {
 		Promise: true,
-		React: true
+		React: true,
+		beforeAll: true,
+		afterAll: true,
+		expect: true,
+		jest: true
 	},
 	extends: [
 		'eslint:recommended',
@@ -98,7 +102,6 @@ module.exports = {
 		'newline-before-return': 'warn',
 		'no-array-constructor': 'error',
 		'no-bitwise': 'error',
-		'no-continue': 'warn',
 		'no-new-object': 'error',
 		'no-restricted-imports': [
 			'error',
