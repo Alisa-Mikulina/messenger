@@ -1,1 +1,1 @@
-Simple messenger on React/Django
+Simple messenger on Django SSR
